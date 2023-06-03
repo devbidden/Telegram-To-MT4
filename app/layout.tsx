@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${questrial.className} bg-clr-5 relative`}>
+      <body className={`${questrial.className} bg-clr-5 relative w-full`}>
         <Nav />
         {children}
       </body>
