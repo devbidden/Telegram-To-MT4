@@ -1,7 +1,6 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Nav from '@/components/Nav'
+import { questrial } from '@/public/font/f'
 
 export const metadata = {
   title: 'Telegram to MT4',
@@ -15,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${questrial.className} bg-clr-5 relative`}>
+        <Nav />
+        {children}
+      </body>
     </html>
   )
 }
