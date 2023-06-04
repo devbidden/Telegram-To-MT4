@@ -43,9 +43,9 @@ const WordFlick: React.FC<{ words: string[], styles?: string }> = ({ words, styl
     }, [forwards, i, offset, skipCount, words])
 
     return (
-        <div className={styles}>
+        <p className={styles}>
             {part}
-        </div>
+        </p>
     )
 }
 
