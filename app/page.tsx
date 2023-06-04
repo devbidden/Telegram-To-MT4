@@ -1,5 +1,5 @@
 "use client"
-import images from '@/utils/images'
+import images from '@/public/images'
 import Slider from '@/components/Slider'
 import WordFlick from '@/components/WordFlick'
 import Accordion from '@/components/Accordion'
