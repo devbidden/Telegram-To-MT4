@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Image from 'next/image'
@@ -54,8 +55,8 @@ const Slider: React.FC<{ images: any[] }> = ({ images }) => {
 
                     return (
                         <div className={`slider-container ${position}`} key={img.id}>
-                            <Image src={img.img} alt={img.id} 
-                            className="photo" loading='lazy' />
+                            <Image src={img.img} alt={img.id} className="photo"
+                            width={250} height={250} priority />
                         </div>
                     )
                 })}
