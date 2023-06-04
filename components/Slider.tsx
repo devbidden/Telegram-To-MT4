@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import Image from 'next/image'
-import { useState } from 'react'
 import {
     BsChevronLeft, BsChevronRight
 } from '@/public/icons/ico'
+import { useState, useEffect } from 'react'
 
 const Slider: React.FC<{ images: any[] }> = ({ images }) => {
     const [activeImg, setActiveImg] = useState<number>(0)
@@ -27,6 +28,14 @@ const Slider: React.FC<{ images: any[] }> = ({ images }) => {
             }
         }
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            move(1)
+        }, 2300)
+
+        return () => clearInterval(interval)
+    }, [activeImg])
 
     return (
         <section className="slider-section">
