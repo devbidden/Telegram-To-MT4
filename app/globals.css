@@ -7,7 +7,7 @@
 }
 
 .nav-bar {
-    @apply px-10 py-0.5 bg-clr-0 fixed top-0 w-full ;
+    @apply px-10 py-0.5 bg-clr-0 fixed top-0 w-full z-[999];
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -29,4 +29,37 @@
 
 .disclosure-panel {
     @apply px-4 pt-4 pb-2 text-clr-3
+}
+
+
+.photo {
+    @apply trans w-full h-full object-contain;
+}
+
+.activeSlide {
+    @apply translate-x-0 opacity-[1];
+}
+
+.lastSlide {
+    @apply translate-x-[-100%];
+}
+
+.nextSlide {
+    @apply translate-x-[100%];
+}
+
+.slider-section {
+    @apply flex gap-3.5 w-full items-center;
+}
+
+.slider-section-center { 
+    @apply flex w-full h-[300px] relative overflow-hidden;
+}
+
+.slider-section button {
+    @apply h-fit w-fit text-2xl font-bold;
+}
+
+.slider-container {
+    @apply absolute top-0 left-0 w-full h-full trans;
 }
