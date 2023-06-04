@@ -29,11 +29,11 @@ const Slider: React.FC<{ images: any[] }> = ({ images }) => {
     }
 
     return (
-        <article className="slider-container">
+        <section className="slider-section">
             <button onClick={() => move(-1)}>
                 <BsChevronLeft />
             </button>
-            <div className="slider-img-container">
+            <div className="slider-section-center">
                 {images.map((img: any, index: number) => {
                     let position: string = 'nextSlide'
                     if (index === activeImg) {
@@ -44,9 +44,9 @@ const Slider: React.FC<{ images: any[] }> = ({ images }) => {
                     }
 
                     return (
-                        <div className={position} key={img.id}>
-                            <Image src={img.img} alt={img.id}
-                            className="photo" width={80} height={80}/>
+                        <div className={`slider-container ${position}`} key={img.id}>
+                            <Image src={img.img} alt={img.id} loading='lazy'
+                            className="photo" width={250} height={250} />
                         </div>
                     )
                 })}
@@ -54,7 +54,7 @@ const Slider: React.FC<{ images: any[] }> = ({ images }) => {
             <button onClick={() =>  move(1)}>
                 <BsChevronRight />
             </button>
-        </article>
+        </section>
     )
 }
 
