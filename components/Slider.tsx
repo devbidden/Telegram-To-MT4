@@ -54,8 +54,8 @@ const Slider: React.FC<{ images: any[] }> = ({ images }) => {
 
                     return (
                         <div className={`slider-container ${position}`} key={img.id}>
-                            <Image src={img.img} alt={img.id} loading='lazy'
-                            className="photo" width={250} height={250} />
+                            <Image src={img.img} alt={img.id} 
+                            className="photo" loading='lazy' />
                         </div>
                     )
                 })}
