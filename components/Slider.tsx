@@ -1,14 +1,15 @@
 "use client"
 import Image from 'next/image'
 import { useState } from 'react'
-import images from '@/utils/images'
+import {
+    BsChevronLeft, BsChevronRight
+} from '@/public/icons/ico'
 
-
-const Slider: React.FC = () => {
-    const [activeImg, setActiveImg] = useState<number>(1)
+const Slider: React.FC<{ images: any[] }> = ({ images }) => {
+    const [activeImg, setActiveImg] = useState<number>(0)
 
     const move = (direction: number) => {
-        const length = images.length
+        const length: number = images.length
 
         if (direction === -1) {
             if (activeImg === 0) {
@@ -28,13 +29,31 @@ const Slider: React.FC = () => {
     }
 
     return (
-        <article>
-            <button onClick={() => move(-1)}>Prev</button>
-            {images.map((img: any) => (
-                <Image src={img.img} key={img.id} width={80} height={80} alt={img.id}
-                className={`${(activeImg !== (img.id - 1)) && "hidden"}`} />
-            ))}
-            <button onClick={() =>  move(1)}>Next</button>
+        <article className="slider-container">
+            <button onClick={() => move(-1)}>
+                <BsChevronLeft />
+            </button>
+            <div className="slider-img-container">
+                {images.map((img: any, index: number) => {
+                    let position: string = 'nextSlide'
+                    if (index === activeImg) {
+                        position = 'activeSlide'
+                    }
+                    if (index === activeImg - 1 || (activeImg === 0 && index === images.length - 1)) {
+                        position = 'lastSlide'
+                    }
+
+                    return (
+                        <div className={position} key={img.id}>
+                            <Image src={img.img} alt={img.id}
+                            className="photo" width={80} height={80}/>
+                        </div>
+                    )
+                })}
+            </div>
+            <button onClick={() =>  move(1)}>
+                <BsChevronRight />
+            </button>
         </article>
     )
 }
